@@ -51,14 +51,19 @@ export default function About(
             items: []
         },
         { 
-            title: about.work.title,
-            display: about.work.display,
-            items: about.work.experiences.map(experience => experience.company)
-        },
-        { 
             title: about.studies.title,
             display: about.studies.display,
             items: about.studies.institutions.map(institution => institution.name)
+        },
+        { 
+            title: about.projects.title,
+            display: about.projects.display,
+            items: about.projects.list.map(project => project.title)
+        },
+        { 
+            title: about.work.title,
+            display: about.work.display,
+            items: about.work.experiences.map(experience => experience.company)
         },
         { 
             title: about.technical.title,
@@ -195,7 +200,8 @@ export default function About(
                                             prefixIcon={item.icon}
                                             label={item.name}
                                             size="s"
-                                            variant="tertiary"/>
+                                            variant="tertiary"
+                                            target={item.link.startsWith('mailto:') ? '_blank' : undefined}/>
                                     )
                                 ))}
                             </Flex>
@@ -209,6 +215,112 @@ export default function About(
                             fillWidth gap="m" marginBottom="xl">
                             {about.intro.description}
                         </Flex>
+                    )}
+
+                    { about.studies.display && (
+                        <>
+                            <Heading
+                                as="h2"
+                                id={about.studies.title}
+                                variant="display-strong-s"
+                                marginBottom="m">
+                                {about.studies.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40">
+                                {about.studies.institutions.map((institution, index) => (
+                                    <Flex
+                                        key={`${institution.name}-${index}`}
+                                        fillWidth gap="4"
+                                        direction="column">
+                                        <Text
+                                            id={institution.name}
+                                            variant="heading-strong-l">
+                                            {institution.name}
+                                        </Text>
+                                        <Text
+                                            variant="heading-default-xs"
+                                            onBackground="neutral-weak">
+                                            {institution.description}
+                                        </Text>
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
+                    )}
+
+                    { about.projects.display && (
+                        <>
+                            <Heading
+                                as="h2"
+                                id={about.projects.title}
+                                variant="display-strong-s"
+                                marginBottom="m">
+                                {about.projects.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40">
+                                {about.projects.list.map((project, index) => (
+                                    <Flex
+                                        key={`${project.title}-${index}`}
+                                        fillWidth
+                                        direction="column">
+                                        <Flex
+                                            fillWidth
+                                            justifyContent="space-between"
+                                            alignItems="flex-end"
+                                            marginBottom="4">
+                                            <Text
+                                                id={project.title}
+                                                variant="heading-strong-l">
+                                                <Button
+                                                    href={project.link}
+                                                    variant="tertiary"
+                                                    label={project.title}
+                                                    target="_blank"
+                                                    style={{ fontSize: 'inherit', fontWeight: 'inherit' }}
+                                                />
+                                            </Text>
+                                        </Flex>
+                                        <Flex
+                                            as="ul"
+                                            direction="column" gap="16">
+                                            {project.achievements.map((achievement, index) => (
+                                                <Text
+                                                    as="li"
+                                                    variant="body-default-m"
+                                                    key={`${project.title}-${index}`}>
+                                                    {achievement}
+                                                </Text>
+                                            ))}
+                                        </Flex>
+                                        {project.images.length > 0 && (
+                                            <Flex
+                                                fillWidth paddingTop="m" paddingLeft="40"
+                                                wrap>
+                                                {project.images.map((image, index) => (
+                                                    <Flex
+                                                        key={index}
+                                                        border="neutral-medium"
+                                                        borderStyle="solid-1"
+                                                        radius="m"
+                                                        minWidth={image.width} height={image.height}>
+                                                        <SmartImage
+                                                            enlarge
+                                                            radius="m"
+                                                            sizes={image.width.toString()}
+                                                            alt={image.alt}
+                                                            src={image.src}/>
+                                                    </Flex>
+                                                ))}
+                                            </Flex>
+                                        )}
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
                     )}
 
                     { about.work.display && (
@@ -283,39 +395,6 @@ export default function About(
                                                 ))}
                                             </Flex>
                                         )}
-                                    </Flex>
-                                ))}
-                            </Flex>
-                        </>
-                    )}
-
-                    { about.studies.display && (
-                        <>
-                            <Heading
-                                as="h2"
-                                id={about.studies.title}
-                                variant="display-strong-s"
-                                marginBottom="m">
-                                {about.studies.title}
-                            </Heading>
-                            <Flex
-                                direction="column"
-                                fillWidth gap="l" marginBottom="40">
-                                {about.studies.institutions.map((institution, index) => (
-                                    <Flex
-                                        key={`${institution.name}-${index}`}
-                                        fillWidth gap="4"
-                                        direction="column">
-                                        <Text
-                                            id={institution.name}
-                                            variant="heading-strong-l">
-                                            {institution.name}
-                                        </Text>
-                                        <Text
-                                            variant="heading-default-xs"
-                                            onBackground="neutral-weak">
-                                            {institution.description}
-                                        </Text>
                                     </Flex>
                                 ))}
                             </Flex>

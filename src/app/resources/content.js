@@ -1,15 +1,15 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-    firstName: 'Selene',
-    lastName:  'Yu',
+    firstName: 'Austin',
+    lastName:  'Weideman',
     get name() {
         return `${this.firstName} ${this.lastName}`;
     },
-    role:      'Design Engineer',
+    role:      'Software Engineer',
     avatar:    '/images/avatar.jpg',
-    location:  'Asia/Jakarta',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-    languages: ['English', 'Bahasa']  // optional: Leave the array empty if you don't want to display languages
+    location:  'America/Vancouver',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+    languages: []  // optional: Leave the array empty if you don't want to display languages
 }
 
 const newsletter = {
@@ -21,15 +21,15 @@ const newsletter = {
 const social = [
     // Links are automatically displayed.
     // Import new icons in /once-ui/icons.ts
-    {
-        name: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/once-ui-system/nextjs-starter',
-    },
+    // {
+    //     name: 'GitHub',
+    //     icon: 'github',
+    //     link: 'https://github.com/once-ui-system/nextjs-starter',
+    // },
     {
         name: 'LinkedIn',
         icon: 'linkedin',
-        link: 'https://www.linkedin.com/company/once-ui/',
+        link: 'https://www.linkedin.com/in/austin-weideman-0ba5b7159/',
     },
     {
         name: 'X',
@@ -39,7 +39,7 @@ const social = [
     {
         name: 'Email',
         icon: 'email',
-        link: 'mailto:example@gmail.com',
+        link: 'mailto:austinweideman@gmail.com',
     },
 ]
 
@@ -47,8 +47,8 @@ const home = {
     label: 'Home',
     title: `${person.name}'s Portfolio`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
-    headline: <>Design engineer and builder</>,
-    subline: <>I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive<br/> user experiences. After hours, I build my own projects.</>
+    headline: <>Engineer, builder, creator</>,
+    subline: <>I'm Austin, a software engineer at <InlineCode>Yo Mama's</InlineCode>, where I craft intuitive<br/> user experiences. After hours, I build my own projects.</>
 }
 
 const about = {
@@ -64,41 +64,79 @@ const about = {
     },
     calendar: {
         display: true,
-        link: 'https://cal.com'
+        link: 'https://cal.com/austin-weideman'
     },
     intro: {
-        display: true,
+        display: false,
         title: 'Introduction',
-        description: <>Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology.</>
+        description: <></>
     },
-    work: {
-        display: true, // set to false to hide this section
-        title: 'Work Experience',
-        experiences: [
+    projects: {
+        display: true,
+        title: 'Featured Projects',
+        list: [
             {
-                company: 'FLY',
-                timeframe: '2022 - Present',
-                role: 'Senior Design Engineer',
+                title: 'RAG Chatbot',
                 achievements: [
-                    <>Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.</>,
-                    <>Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.</>
+                    <>Full-stack AI chat application enabling document-based conversations</>,
+                    <>Supports 20+ document types including PDFs, Word, and Excel</>,
+                    <>Built with LangChain, LangGraph, Supabase, PGVector, OpenAI, LlamaParse, Next.js</>
                 ],
-                images: [ // optional: leave the array empty if you don't want to display images
-                    {
-                        src: '/images/projects/project-01/cover-01.jpg',
-                        alt: 'Once UI Project',
-                        width: 16,
-                        height: 9
-                    }
+                link: 'https://rag-chatbot-pearl.vercel.app/',
+                images: [
+                    // {
+                    //     src: '/images/projects/rag-chatbot.jpg',
+                    //     alt: 'RAG Chatbot Interface',
+                    //     width: 16,
+                    //     height: 9
+                    // }
                 ]
             },
             {
-                company: 'Creativ3',
-                timeframe: '2018 - 2022',
-                role: 'Lead Designer',
+                title: 'Reddit Sentiment Analysis Platform',
                 achievements: [
-                    <>Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.</>,
-                    <>Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.</>
+                    <>AI-powered platform that analyzes Reddit posts by sentiment categories</>,
+                    <>Helps users identify business opportunities through pain points and solution requests</>,
+                    <>Built with Next.js, TypeScript, Tailwind, Supabase, and OpenAI</>
+                ],
+                link: 'https://reddit-analytics-platform-ten.vercel.app/',
+                images: []
+            },
+            {
+                title: 'Guitar Visualizer',
+                achievements: [
+                    <>Interactive tool for visualizing guitar notes, scales, and chords</>,
+                    <>Personal project born from need as a guitarist</>,
+                    <>Built with HTML, JavaScript, and CSS</>
+                ],
+                link: 'https://guitarvispro.com/',
+                images: []
+            }
+        ]
+    },
+    work: {
+        display: true,
+        title: 'Work Experience',
+        experiences: [
+            {
+                company: 'Weideman Group',
+                timeframe: 'January 2024 - Present',
+                role: 'Account Executive',
+                achievements: [
+                    <>Lead consultant for software and technology clients at the Weideman Group, a family business and Top 5 ranked government affairs firm in California.</>,
+                    <>Manage projects for 12 large accounts, including McKinsey & Company, Lucid Motors, Autodesk, Nuro, Netsmart, and Intuitive Surgical.</>,
+                    <>Lead advisor on emerging artificial intelligence legislation and regulation.</>,
+                    <>Conducted lobbying efforts to block legislation that would have hindered operations for an $8 billion technology client.</>,
+                    <>Secured buy-in from 18 organizations for an out-of-state client entering the California market.</>
+                ],
+                images: []
+            },
+            {
+                company: 'Vitu',
+                timeframe: 'Summer 2022',
+                role: 'Software Engineer Intern',
+                achievements: [
+                    <>Led a team of interns to integrate AI-powered text extraction into a nationwide car dealership software.</>,
                 ],
                 images: [ ]
             }
@@ -106,20 +144,16 @@ const about = {
     },
     studies: {
         display: true, // set to false to hide this section
-        title: 'Studies',
+        title: 'Education',
         institutions: [
             {
-                name: 'University of Jakarta',
-                description: <>Studied software engineering.</>,
+                name: 'Stanford University',
+                description: <>Bachelor of Science in Symbolic Systems, concentration in Mathematical Foundations</>,
             },
-            {
-                name: 'Build the Future',
-                description: <>Studied online marketing and personal branding.</>,
-            }
         ]
     },
     technical: {
-        display: true, // set to false to hide this section
+        display: false, // set to false to hide this section
         title: 'Technical skills',
         skills: [
             {
@@ -174,83 +208,4 @@ const work = {
     // All projects will be listed on the /home and /work routes
 }
 
-const gallery = {
-    label: 'Gallery',
-    title: 'My photo gallery',
-    description: `A photo collection by ${person.name}`,
-    // Images from https://pexels.com
-    images: [
-        { 
-            src: '/images/gallery/img-01.jpg', 
-            alt: 'image',
-            orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-02.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-03.jpg', 
-            alt: 'image',
-            orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-04.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-05.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-06.jpg', 
-            alt: 'image',
-            orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-07.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-08.jpg', 
-            alt: 'image',
-            orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-09.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-10.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-11.jpg', 
-            alt: 'image',
-            orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-12.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-13.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-14.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-    ]
-}
-
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work };
