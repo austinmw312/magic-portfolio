@@ -3,39 +3,15 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from 'classnames';
 
-import { RouteGuard } from "@/components";
 import { effects, style } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
 
-import { routing } from "@/i18n/routing";
 import { Background, Flex } from "@/once-ui/components";
-
-export async function generateMetadata() {
-	return {
-		title: "Austin Weideman's Portfolio",
-		openGraph: {
-			title: "Austin Weideman's Portfolio",
-			type: 'website',
-			locale: 'en_US',
-		},
-		robots: {
-			index: true,
-			follow: true,
-			googleBot: {
-				index: true,
-				follow: true,
-				'max-video-preview': -1,
-				'max-image-preview': 'large',
-				'max-snippet': -1,
-			},
-		},
-	}
-}
 
 const primary = Inter({
 	variable: '--font-primary',
@@ -62,23 +38,18 @@ const code = Source_Code_Pro({
 	display: 'swap',
 });
 
-interface RootLayoutProps {
+interface LayoutProps {
 	children: React.ReactNode;
 	params: {locale: string};
 }
 
-export function generateStaticParams() {
-	return routing.locales.map((locale) => ({locale}));
-  }
-
-export default async function RootLayout({
+export default async function Layout({
 	children,
 	params: {locale}
-} : RootLayoutProps) {
-	unstable_setRequestLocale(locale);
+} : LayoutProps) {
 	const messages = await getMessages();
 	return (
-		<NextIntlClientProvider messages={messages}>
+		<NextIntlClientProvider messages={messages} locale={locale}>
 			<Flex
 				as="html" lang="en"
 				background="page"
@@ -113,9 +84,7 @@ export default async function RootLayout({
 						<Flex
 							justifyContent="center"
 							fillWidth minHeight="0">
-							<RouteGuard>
-								{children}
-							</RouteGuard>
+							{children}
 						</Flex>
 					</Flex>
 				</Flex>
