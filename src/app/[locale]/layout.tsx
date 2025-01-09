@@ -4,36 +4,24 @@ import "@/once-ui/tokens/index.scss";
 import classNames from 'classnames';
 
 import { RouteGuard } from "@/components";
-import { baseURL, effects, style } from '@/app/resources'
+import { effects, style } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 
 import { routing } from "@/i18n/routing";
-import { renderContent } from "@/app/resources";
 import { Background, Flex } from "@/once-ui/components";
 
-export async function generateMetadata(
-	{ params: { locale }}: { params: { locale: string }}
-) {
-
-	const t = await getTranslations();
-	const { person, home } = renderContent(t);
-
+export async function generateMetadata() {
 	return {
-		metadataBase: new URL(`https://${baseURL}/${locale}`),
-		title: home.title,
-		description: home.description,
+		title: "Austin Weideman's Portfolio",
 		openGraph: {
-			title: `${person.firstName}'s Portfolio`,
-			description: 'Portfolio website showcasing my work.',
-			url: baseURL,
-			siteName: `${person.firstName}'s Portfolio`,
-			locale: 'en_US',
+			title: "Austin Weideman's Portfolio",
 			type: 'website',
+			locale: 'en_US',
 		},
 		robots: {
 			index: true,
@@ -47,7 +35,7 @@ export async function generateMetadata(
 			},
 		},
 	}
-};
+}
 
 const primary = Inter({
 	variable: '--font-primary',
