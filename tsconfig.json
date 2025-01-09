@@ -28,6 +28,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@once-ui/*": [
+        "./src/once-ui/*"
       ]
     },
     "strictNullChecks": true
