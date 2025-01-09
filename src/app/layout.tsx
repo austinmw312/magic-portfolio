@@ -1,7 +1,7 @@
-import "@/once-ui/styles/index.scss";
-import "@/once-ui/tokens/index.scss";
-import "@/once-ui/modules/code/CodeHighlight.css";
-import "@/components/about/about.module.scss";
+import "../once-ui/styles/index.scss";
+import "../once-ui/tokens/index.scss";
+import "../once-ui/modules/code/CodeHighlight.css";
+import "../components/about/about.module.scss";
 
 import classNames from 'classnames';
 
