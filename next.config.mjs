@@ -8,6 +8,9 @@ const withMDX = mdx({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+    sassOptions: {
+        includePaths: ['./src'],
+    },
 };
 
 export default withMDX(nextConfig);
