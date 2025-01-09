@@ -6,7 +6,7 @@ const person = {
     get name() {
         return `${this.firstName} ${this.lastName}`;
     },
-    role:      'Software Engineer',
+    role:      'Software Engineer & Consultant',
     avatar:    '/images/avatar.jpg',
     location:  'Sacramento, CA',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
     languages: []  // optional: Leave the array empty if you don't want to display languages
@@ -31,11 +31,11 @@ const social = [
         icon: 'linkedin',
         link: 'https://www.linkedin.com/in/austin-weideman-0ba5b7159/',
     },
-    {
-        name: 'X',
-        icon: 'x',
-        link: '',
-    },
+    // {
+    //     name: 'X',
+    //     icon: 'x',
+    //     link: '',
+    // },
     {
         name: 'Email',
         icon: 'email',
@@ -67,9 +67,9 @@ const about = {
         link: 'https://cal.com/austin-weideman'
     },
     intro: {
-        display: false,
+        display: true,
         title: 'Introduction',
-        description: <></>
+        description: <>Hi, I'm Austin! I'm a Stanford '22 grad, consultant at the Weideman Group, and aspiring software engineer with a passion for building AI applications that empower users.</>
     },
     projects: {
         display: true,
