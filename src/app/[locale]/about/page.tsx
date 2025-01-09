@@ -116,7 +116,7 @@ export default function About(
                         className={styles.avatar}
                         minWidth="160" paddingX="l" paddingBottom="xl" gap="m"
                         flex={3} direction="column" alignItems="center">
-                        <RevealFx translateY="8" delay={0.4}>
+                        <RevealFx translateY="8" delay={0.2}>
                             <Avatar
                                 src={person.avatar}
                                 size="xl"/>
@@ -152,7 +152,7 @@ export default function About(
                         fillWidth minHeight="160"
                         direction="column" justifyContent="center"
                         marginBottom="32">
-                        <RevealFx translateY="12" delay={0.6}>
+                        <RevealFx translateY="12" delay={0.3}>
                             {about.calendar.display && (
                                 <Flex
                                     className={styles.blockAlign}
@@ -223,7 +223,7 @@ export default function About(
 
                     { about.studies.display && (
                         <>
-                            <RevealFx translateY="16" delay={0.8}>
+                            <RevealFx translateY="16" delay={0.4}>
                                 <Heading
                                     as="h2"
                                     id={about.studies.title}
@@ -258,7 +258,7 @@ export default function About(
 
                     { about.projects.display && (
                         <>
-                            <RevealFx translateY="16" delay={1.0}>
+                            <RevealFx translateY="16" delay={0.5}>
                                 <Heading
                                     as="h2"
                                     id={about.projects.title}
@@ -333,7 +333,7 @@ export default function About(
 
                     { about.work.display && (
                         <>
-                            <RevealFx translateY="16" delay={1.2}>
+                            <RevealFx translateY="16" delay={0.6}>
                                 <Heading
                                     as="h2"
                                     id={about.work.title}

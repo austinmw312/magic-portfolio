@@ -26,7 +26,7 @@ const effects = {
     mask: 'cursor',             // none | cursor | topLeft | topRight | bottomLeft | bottomRight
     gradient: {
         display: true,
-        opacity: 0.4            // 0 - 1
+        opacity: 0.8            // 0 - 1
     },
     dots: {
         display: true,
