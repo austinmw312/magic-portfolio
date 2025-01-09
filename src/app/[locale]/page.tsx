@@ -289,7 +289,11 @@ export default function About(
                                                         variant="tertiary"
                                                         label={project.title}
                                                         target="_blank"
-                                                        style={{ fontSize: 'inherit', fontWeight: 'inherit' }}
+                                                        style={{ 
+                                                            fontSize: '1.8em',
+                                                            fontWeight: 'inherit',
+                                                            color: 'var(--brand-on-background-weak)'
+                                                        }}
                                                     />
                                                 </Text>
                                             </Flex>
