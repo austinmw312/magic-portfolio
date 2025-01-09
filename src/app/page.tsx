@@ -2,47 +2,26 @@ import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text,
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
-import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 
-export async function generateMetadata(
-    {params: {locale}}: { params: { locale: string }}
-) {
-    const t = await getTranslations();
-    const {person, about, social } = renderContent(t);
-	const title = about.title;
-	const description = about.description;
-	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+type ProjectImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 
-	return {
-		title,
-		description,
-		openGraph: {
-			title,
-			description,
-			type: 'website',
-			url: `https://${baseURL}/${locale}/about`,
-			images: [
-				{
-					url: ogImage,
-					alt: title,
-				},
-			],
-		},
-		twitter: {
-			card: 'summary_large_image',
-			title,
-			description,
-			images: [ogImage],
-		},
-	};
-}
+type Experience = {
+  company: string;
+  timeframe: string;
+  role: string;
+  achievements: (string | JSX.Element)[];
+  images: ProjectImage[];
+};
 
 export default function About(
     { params: {locale}}: { params: { locale: string }}
 ) {
-    const t = useTranslations();
-    const {person, about, social } = renderContent(t);
+    const {person, about, social } = renderContent();
     const structure = [
         { 
             title: about.intro.title,
@@ -312,13 +291,14 @@ export default function About(
                                                 <Flex
                                                     fillWidth paddingTop="m" paddingLeft="40"
                                                     wrap>
-                                                    {project.images.map((image, index) => (
+                                                    {project.images.map((image: ProjectImage, index) => (
                                                         <Flex
                                                             key={index}
                                                             border="neutral-medium"
                                                             borderStyle="solid-1"
                                                             radius="m"
-                                                            minWidth={image.width} height={image.height}>
+                                                            minWidth={image.width} 
+                                                            height={image.height}>
                                                             <SmartImage
                                                                 enlarge
                                                                 radius="m"
@@ -349,7 +329,7 @@ export default function About(
                                 <Flex
                                     direction="column"
                                     fillWidth gap="l" marginBottom="40">
-                                    {about.work.experiences.map((experience, index) => (
+                                    {about.work.experiences.map((experience: Experience, index) => (
                                         <Flex
                                             key={`${experience.company}-${experience.role}-${index}`}
                                             fillWidth
@@ -392,13 +372,14 @@ export default function About(
                                                 <Flex
                                                     fillWidth paddingTop="m" paddingLeft="40"
                                                     wrap>
-                                                    {experience.images.map((image, index) => (
+                                                    {experience.images.map((image: ProjectImage, index) => (
                                                         <Flex
                                                             key={index}
                                                             border="neutral-medium"
                                                             borderStyle="solid-1"
                                                             radius="m"
-                                                            minWidth={image.width} height={image.height}>
+                                                            minWidth={image.width} 
+                                                            height={image.height}>
                                                             <SmartImage
                                                                 enlarge
                                                                 radius="m"
@@ -445,7 +426,7 @@ export default function About(
                                             <Flex
                                                 fillWidth paddingTop="m" gap="12"
                                                 wrap>
-                                                {skill.images.map((image, index) => (
+                                                {skill.images.map((image: ProjectImage, index) => (
                                                     <Flex
                                                         key={index}
                                                         border="neutral-medium"

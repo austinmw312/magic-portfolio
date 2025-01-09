@@ -8,9 +8,6 @@ import { effects, style } from '@/app/resources'
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
 
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-
 import { Background, Flex } from "@/once-ui/components";
 
 const primary = Inter({
@@ -40,16 +37,13 @@ const code = Source_Code_Pro({
 
 interface LayoutProps {
 	children: React.ReactNode;
-	params: {locale: string};
 }
 
 export default async function Layout({
-	children,
-	params: {locale}
+	children
 } : LayoutProps) {
-	const messages = await getMessages();
 	return (
-		<NextIntlClientProvider messages={messages} locale={locale}>
+		<>
 			<Flex
 				as="html" lang="en"
 				background="page"
@@ -89,6 +83,6 @@ export default async function Layout({
 					</Flex>
 				</Flex>
 			</Flex>
-		</NextIntlClientProvider>
+		</>
 	);
 }
