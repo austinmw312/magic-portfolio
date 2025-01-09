@@ -69,7 +69,7 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>Hi, I'm Austin! I'm a Stanford '22 grad, consultant at the Weideman Group, and aspiring software engineer with a passion for building AI applications that empower users.</>
+        description: <>Hi, I'm Austin! I'm a consultant at the Weideman Group and an aspiring software engineer. I have a passion for building AI applications that empower users to be more productive and creative.</>
     },
     projects: {
         display: true,
